@@ -20,6 +20,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/htc/s4-common/s4.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/ville/overlay
+ifeq ($(TARGET_DEVICE),villedm)
+DEVICE_PACKAGE_OVERLAYS += device/htc/ville/overlay-villedm
+else
+DEVICE_PACKAGE_OVERLAYS += device/htc/ville/overlay-ville
+endif
 
 # Boot ramdisk setup
 PRODUCT_PACKAGES += \
